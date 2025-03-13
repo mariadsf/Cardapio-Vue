@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -62,7 +61,8 @@
                                 <div class="card-body">
 
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input"  value="gergelim" v-model="inputTipoPao">
+                                        <input type="radio" class="form-check-input" value="gergelim"
+                                            v-model="inputTipoPao">
 
                                         <label class="form-check-label">Gergelim</label>
                                     </div>
@@ -93,12 +93,13 @@
 
                                     <div class="form-check">
 
-                                        <input type="checkbox" class="form-check-input" value="alface" v-model="inputSalada">
+                                        <input type="checkbox" class="form-check-input" value="alface"
+                                            v-model="inputSalada">
 
                                         <label class="form-check-label"> Alface </label>
 
                                     </div>
-                        
+
                                 </div>
 
 
@@ -107,59 +108,150 @@
                         </div>
                     </div>
 
+                    <!-- molhos -->
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
 
-                                                      
-                    
-                    
-                </div> <!-- Fim Etapa 1 -->
-                <!-- Fim col md -->
+                                <div class="card-header">
+                                    Molhos
+                                </div>
+                                <div class="card-body">
 
-                                
+                                    <div class="form-check">
 
-            </div> <!-- fim ROW -->
-        </div> <!-- FIM APP -->
-    </div> <!-- FIM container -->
+                                        <input type="checkbox" class="form-check-input" value="maionese"
+                                            v-model="inputMolhos">
 
-    <!-- instancia VUE -->
-    <script>
-        const vm = new Vue({
-            el: '#app',
+                                        <label class="form-check-label"> Maionese </label>
 
-            data: {  // atributos // propriedades
-                inputTipoPao: '',  /* radio = Obrigatorio */ 
-                inputSalada: [], /* checkbox = opcional */
+                                    </div>
+                                    <div class="form-check">
 
-                etapa: 1,
-                
+                                        <input type="checkbox" class="form-check-input" value="ketchup"
+                                            v-model="inputMolhos">
 
-            },
+                                        <label class="form-check-label"> Ketchup </label>
 
-            computed: { // propriedades computadas // reativos
-                pao() {
-                    switch (this.inputTipoPao) {
-                        case 'gergelim':
-                            return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
-                        case 'australiano':
-                            return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
-                        default:
-                            return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
-                    }
-                },
+                                    </div>
+                                    <div class="form-check">
 
-                alface () {
-                    if (this.inputSalada.includes('alface')) {
-                        return 'imagens/alface.png'
-                    }
+                                        <input type="checkbox" class="form-check-input" value="mostarda"
+                                            v-model="inputMolhos">
 
-                    return 'imagens/padrao/alface.png'
-                },
-                
-                
-            },
-            
-            
-        })
-    </script>
+                                        <label class="form-check-label"> Mostarda </label>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div> <!-- Fim Etapa 1 -->
+                            <!-- Fim col md -->
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <div class="card">
+        
+                                        <div class="card-header">
+                                            Tipos de Hamburguer
+                                        </div>
+                                        <div class="card-body">
+
+                                            <div class="form-check">
+        
+                                                <input type="checkbox" class="form-check-input" value="bovino"
+                                                    v-model="inputHamburguer">
+        
+                                                <label class="form-check-label"> Bovino </label>
+        
+                                            </div>
+
+
+                        </div> <!-- fim ROW -->
+                    </div> <!-- FIM APP -->
+
+                    <!--Fim Molhos-->
+
+                </div> <!-- FIM container -->
+
+                <!-- instancia VUE -->
+                <script>
+                    const vm = new Vue({
+                        el: '#app',
+
+                        data: {  // atributos // propriedades
+                            inputTipoPao: '',  /* radio = Obrigatorio */
+                            inputSalada: [], /* checkbox = opcional */
+                            inputMolhos: [],
+                            inputHamburguer: '',
+
+                            etapa: 1,
+
+
+                        },
+
+                        computed: { // propriedades computadas // reativos
+                            pao() {
+                                switch (this.inputTipoPao) {
+                                    case 'gergelim':
+                                        return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
+                                    case 'australiano':
+                                        return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
+                                    default:
+                                        return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
+                                }
+                            },
+
+                            alface() {
+                                if (this.inputSalada.includes('alface')) {
+                                    return 'imagens/alface.png'
+                                }
+
+                                return 'imagens/padrao/alface.png'
+                            },
+
+                            maionese() {
+                                if (this.inputMolhos.includes('maionese')) {
+
+                                    return ['imagens/maionese.png']
+                                }
+                                return ['imagens/padrao/molho.png']
+
+                            },
+
+                            ketchup() {
+                                if (this.inputMolhos.includes('ketchup')) {
+                                    return ['imagens/ketchup.png']
+                                }
+                                return ['imagens/padrao/molho.png']
+                            },
+                            
+                            mostarda() {
+                                if (this.inputMolhos.includes('mostarda')) {
+                                    return ['imagens/mostarda.png']
+                                }
+                                return ['imagens/padrao/molho.png']
+                            },
+                            
+                            bovino() {
+                                    switch (this.inputHamburguer) {
+                                        case 'bovino':
+                                            return ['imagens/bovino.png']
+                                        case 'frango':
+                                            return ['imagens/frango.png']
+                                        case 'soja':
+                                            return ['imagens/soja.png']
+                                        default:
+                                            return ['imagens/padrao/hamburguer']
+                                    }
+                            },
+
+                        },
+
+
+                    })
+                </script>
 
 </body>
 
