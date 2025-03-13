@@ -41,7 +41,7 @@
                             <img :src="ketchup">
                             <img :src="mostarda">
                             <img :src="maionese">
-                            <img :src="burger">
+                            <img :src="hamburguer">
                             <img :src="pao[1]">
 
                         </div> <!-- col -->
@@ -148,27 +148,48 @@
 
                             </div> <!-- Fim Etapa 1 -->
                             <!-- Fim col md -->
+<!-- Tipos Hamburguer -->
+<div class="row mt-2">
+    <div class="col">
+        <div class="card">
 
-                            <div class="row mt-2">
-                                <div class="col">
-                                    <div class="card">
-        
-                                        <div class="card-header">
-                                            Tipos de Hamburguer
-                                        </div>
-                                        <div class="card-body">
+            <!-- TITULO - Tipos de Hamburguer -->
+            <div class="card-header"> Tipo de Hamburguer </div>
 
-                                            <div class="form-check">
-        
-                                                <input type="checkbox" class="form-check-input" value="bovino"
-                                                    v-model="inputHamburguer">
-        
-                                                <label class="form-check-label"> Bovino </label>
-        
-                                            </div>
+            <!-- Card Body Tipos de Hamburguer -->
+            <div class="card-body">
+
+                <!-- carne -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" value="bovino"
+                        v-model="inputHamburguer">
+
+                    <label class="form-check-label"> Bovino </label>
+                </div>
+
+                <!-- frango -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" value="frango"
+                        v-model="inputHamburguer">
+
+                    <label class="form-check-label"> Frango </label>
+                </div>
+
+                <!-- vegetal -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" value="soja"
+                        v-model="inputHamburguer">
+
+                    <label class="form-check-label"> Soja </label>
+                </div>
+
+            </div>
 
 
-                        </div> <!-- fim ROW -->
+        </div>
+    </div>
+</div> <!-- Fim Tipos Hamburguer -->
+
                     </div> <!-- FIM APP -->
 
                     <!--Fim Molhos-->
@@ -234,18 +255,19 @@
                                 return ['imagens/padrao/molho.png']
                             },
                             
-                            bovino() {
-                                    switch (this.inputHamburguer) {
-                                        case 'bovino':
-                                            return ['imagens/bovino.png']
-                                        case 'frango':
-                                            return ['imagens/frango.png']
-                                        case 'soja':
-                                            return ['imagens/soja.png']
-                                        default:
-                                            return ['imagens/padrao/hamburguer']
-                                    }
-                            },
+                            hamburguer() {
+                                switch (this.inputHamburguer) {
+                                    case 'bovino':
+                                        return 'imagens/bovino.png'
+                                    case 'frango':
+                                        return 'imagens/frango.png'
+                                    case 'soja':
+                                        return 'imagens/soja.png'
+                                    default:
+                                        return 'imagens/padrao/hamburguer.png'
+                    }
+                },
+
 
                         },
 
